@@ -244,8 +244,12 @@
 
   /* Colors for each section type */
   .drug-details {
-    max-height: auto;
-  }
+  max-height: auto;
+  display: block !important;  /* Force visible */
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 6px;
+}
 
   .detail-section.indications {
     background-color: #4caf50;
