@@ -157,17 +157,19 @@
     text-align: center;
   }
 
-  .accordion-content {
-    display: none;
-    background: var(--content-bg);
-    padding: 12px;
-    text-align: center;
-    transition: background 0.25s;
-  }
+  /* Accordion content - hidden by default */
+.accordion-content {
+  display: none;
+  background: var(--content-bg);
+  padding: 12px;
+  text-align: center;
+  transition: background 0.25s;
+}
 
-  .accordion-content.show {
-    display: block;
-  }
+/* Show ALL content when accordion is open */
+.accordion-content.show {
+  display: block;
+}
 
   .img-grid {
     display: flex;
@@ -242,29 +244,44 @@
     margin: 0;
   }
 
-  /* Colors for each section type */
-  .drug-details {
-  max-height: auto;
-  display: block !important;  /* Force visible */
+/* Drug details - always visible when parent is shown */
+.drug-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   margin-top: 16px;
   padding: 12px;
-  border-radius: 6px;
+  border-radius: 8px;
+  background: var(--accent);
+  border: 1px solid var(--border);
 }
 
-  .detail-section.indications {
-    background-color: #4caf50;
-    color: #ffffff;
-  }
+.detail-section {
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+}
 
-  .detail-section.side-effects {
-    background-color: #ffeb3b;
-    color: #000000;
-  }
+.detail-section.indications {
+  background-color: #4caf50;
+  color: #ffffff;
+}
 
-  .detail-section.considerations {
-    background-color: #ff0000;
-    color: #ffffff;
-  }
+.detail-section.side-effects {
+  background-color: #ffeb3b;
+  color: #000000;
+}
+
+.detail-section.considerations {
+  background-color: #ff0000;
+  color: #ffffff;
+}
+
+.detail-section h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
 
   /* Dose Cards */
   .dose-cards {
