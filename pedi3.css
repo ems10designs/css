@@ -45,7 +45,6 @@ body {
   max-width: var(--max-width);
 }
 
-/* Header */
 .weight-box {
   background: var(--weight-bg);
   color: var(--weight-text);
@@ -56,7 +55,6 @@ body {
   font-size: 1.4rem;
 }
 
-/* Controls */
 .controls {
   display: flex;
   flex-direction: column;
@@ -90,7 +88,6 @@ body {
   cursor: pointer;
 }
 
-/* Accordion */
 .accordion-item {
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -118,7 +115,6 @@ body {
   display: block;
 }
 
-/* Images */
 .img-grid {
   display: flex;
   justify-content: center;
@@ -132,7 +128,6 @@ body {
   object-fit: contain;
 }
 
-/* Banners */
 .warning-banner {
   background: #ff0000;
   text-align: center;
@@ -146,7 +141,6 @@ body {
   margin: 0;
 }
 
-/* Dose cards */
 .dose-cards {
   display: grid;
   grid-template-columns: 1fr;
@@ -160,7 +154,6 @@ body {
   padding: 12px;
 }
 
-/* 🔥 FIXED DRUG DETAIL COLORS */
 .drug-details {
   display: flex;
   flex-direction: column;
@@ -174,25 +167,21 @@ body {
   text-align: center;
 }
 
-/* ✅ Indications */
 .drug-details .detail-section.indications {
   background-color: #4caf50 !important;
   color: #ffffff !important;
 }
 
-/* ✅ Side Effects */
 .drug-details .detail-section.side-effects {
   background-color: #ffeb3b !important;
   color: #000000 !important;
 }
 
-/* ✅ Considerations */
 .drug-details .detail-section.considerations {
   background-color: #ff0000 !important;
   color: #ffffff !important;
 }
 
-/* Ensure text inherits correct color */
 .drug-details .detail-section h3 {
   margin: 0;
   font-size: 0.95rem;
@@ -200,13 +189,11 @@ body {
   color: inherit !important;
 }
 
-/* Titles */
 .weight-group-title {
   text-align: center;
   margin-bottom: 10px;
 }
 
-/* Mobile */
 @media (max-width: 520px) {
   .img-grid img {
     width: 70px;
