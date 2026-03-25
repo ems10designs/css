@@ -44,7 +44,7 @@
   .container {
     width: 100%;
     max-width: var(--max-width);
-  }
+
 
   .weight-box {
     background: var(--weight-bg);
@@ -244,5 +244,6 @@
       padding: 9px 10px;
       font-size: 0.88rem;
     }
+  }
   }
 </style>
