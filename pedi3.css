@@ -1,248 +1,253 @@
-<style>
-  :root {
-    --max-width: 900px;
-    --accent: #f0f0f0;
-    --border: #cfcfcf;
-    --warning: #d9534f;
-    --bg: #fff;
-    --text: #111;
-    --content-bg: #fff;
-    --btn-bg: #f7f7f7;
-    --btn-text: #111;
-    --input-bg: #fff;
-    --input-text: #111;
-    --weight-bg: gray;
-    --weight-text: #fff;
+:root {
+  --max-width: 900px;
+  --accent: #f0f0f0;
+  --border: #cfcfcf;
+  --warning: #d9534f;
+  --bg: #fff;
+  --text: #111;
+  --content-bg: #fff;
+  --btn-bg: #f7f7f7;
+  --btn-text: #111;
+  --input-bg: #fff;
+  --input-text: #111;
+  --weight-bg: gray;
+  --weight-text: #fff;
+}
+
+[data-theme="dark"] {
+  --accent: #2a2a2a;
+  --border: #444;
+  --warning: #ff6b6b;
+  --bg: #121212;
+  --text: #e8e8e8;
+  --content-bg: #1e1e1e;
+  --btn-bg: #2a2a2a;
+  --btn-text: #e8e8e8;
+  --input-bg: #2a2a2a;
+  --input-text: #e8e8e8;
+  --weight-bg: #333;
+  --weight-text: #fff;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 16px;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  transition: background 0.25s, color 0.25s;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+.weight-box {
+  background: var(--weight-bg);
+  color: var(--weight-text);
+  text-align: center;
+  padding: 12px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+#searchBox {
+  width: 100%;
+  max-width: 520px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 1rem;
+  box-sizing: border-box;
+  background: var(--input-bg);
+  color: var(--input-text);
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+
+.small-btn,
+#themeToggle {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--btn-bg);
+  border: 1px solid var(--border);
+  color: var(--btn-text);
+  cursor: pointer;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+#themeToggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1;
+}
+
+.accordion {
+  width: 100%;
+}
+
+.accordion-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: border-color 0.25s;
+}
+
+.accordion-header {
+  width: 100%;
+  text-align: left;
+  background: var(--accent);
+  color: var(--text);
+  padding: 12px 14px;
+  border: 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+
+.accordion-header:focus {
+  outline: 3px solid #bde0ff;
+  outline-offset: 2px;
+}
+
+.accordion-title {
+  flex: 1;
+  text-align: center;
+}
+
+.accordion-content {
+  display: none;
+  background: var(--content-bg);
+  padding: 12px;
+  text-align: center;
+  transition: background 0.25s;
+}
+
+.accordion-content.show {
+  display: block;
+}
+
+/* Acetaminophen section */
+#content-acetaminophen .img-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+#content-acetaminophen .img-grid img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  display: inline-block;
+}
+
+#content-acetaminophen .weight-group {
+  margin-bottom: 8px;
+}
+
+#content-acetaminophen .weight-group-title {
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 10px;
+  color: var(--text);
+}
+
+#content-acetaminophen .warning-banner {
+  background: #ff0000;
+  text-align: center;
+  padding: 10px 16px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+#content-acetaminophen .warning-banner h1 {
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+#content-acetaminophen .drug-details {
+  max-height: auto;
+}
+
+#content-acetaminophen .detail-section.indications {
+  background-color: #4caf50;
+  color: #ffffff;
+}
+
+#content-acetaminophen .detail-section.side-effects {
+  background-color: #ffeb3b;
+  color: #000000;
+}
+
+#content-acetaminophen .detail-section.considerations {
+  background-color: #ff0000;
+  color: #ffffff;
+}
+
+.warning {
+  color: var(--warning);
+  font-weight: 800;
+}
+
+.detail-section {
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+}
+
+@media (max-width: 520px) {
+  .img-grid img {
+    width: 70px;
+    height: 70px;
   }
 
-  [data-theme="dark"] {
-    --accent: #2a2a2a;
-    --border: #444;
-    --warning: #ff6b6b;
-    --bg: #121212;
-    --text: #e8e8e8;
-    --content-bg: #1e1e1e;
-    --btn-bg: #2a2a2a;
-    --btn-text: #e8e8e8;
-    --input-bg: #2a2a2a;
-    --input-text: #e8e8e8;
-    --weight-bg: #333;
-    --weight-text: #fff;
-  }
-
-  body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    margin: 0;
-    padding: 16px;
-    background: var(--bg);
-    color: var(--text);
-    display: flex;
-    justify-content: center;
-    transition: background 0.25s, color 0.25s;
-  }
-
-  .container {
-    width: 100%;
-    max-width: var(--max-width);
+  .accordion-header {
+    padding: 10px;
+    font-size: 1rem;
   }
 
   .weight-box {
-    background: var(--weight-bg);
-    color: var(--weight-text);
-    text-align: center;
-    padding: 12px 10px;
-    border-radius: 6px;
-    font-weight: 700;
-    font-size: 1.4rem;
-  }
-
-  .controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    margin: 12px 0;
-  }
-
-  #searchBox {
-    width: 100%;
-    max-width: 520px;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    font-size: 1rem;
-    box-sizing: border-box;
-    background: var(--input-bg);
-    color: var(--input-text);
-    transition: background 0.25s, color 0.25s, border-color 0.25s;
-  }
-
-  .btn-row {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 8px;
+    font-size: 1.15rem;
+    padding: 10px;
   }
 
   .small-btn,
   #themeToggle {
-    padding: 10px 12px;
-    border-radius: 8px;
-    background: var(--btn-bg);
-    border: 1px solid var(--border);
-    color: var(--btn-text);
-    cursor: pointer;
-    font-size: 0.95rem;
-    white-space: nowrap;
-    transition: background 0.25s, color 0.25s, border-color 0.25s;
+    padding: 9px 10px;
+    font-size: 0.88rem;
   }
-
-  #themeToggle {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    line-height: 1;
-  }
-
-  .accordion {
-    width: 100%;
-  }
-
-  .accordion-item {
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    margin-bottom: 10px;
-    overflow: hidden;
-    transition: border-color 0.25s;
-  }
-
-  .accordion-header {
-    width: 100%;
-    text-align: left;
-    background: var(--accent);
-    color: var(--text);
-    padding: 12px 14px;
-    border: 0;
-    font-weight: 700;
-    font-size: 1.05rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    cursor: pointer;
-    transition: background 0.25s, color 0.25s;
-  }
-
-  .accordion-header:focus {
-    outline: 3px solid #bde0ff;
-    outline-offset: 2px;
-  }
-
-  .accordion-title {
-    flex: 1;
-    text-align: center;
-  }
-
-  .accordion-content {
-    display: none;
-    background: var(--content-bg);
-    padding: 12px;
-    text-align: center;
-    transition: background 0.25s;
-  }
-
-  .accordion-content.show {
-    display: block;
-  }
-
-  .img-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px;
-    align-items: center;
-    margin-bottom: 12px;
-  }
-
-  .img-grid img {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
-    display: inline-block;
-  }
-
-  .warning {
-    color: var(--warning);
-    font-weight: 800;
-  }
-
-  .warning-banner {
-    background: #ff0000;
-    text-align: center;
-    padding: 10px 16px;
-    border-radius: 6px;
-    margin-bottom: 12px;
-  }
-
-  .warning-banner h1 {
-    font-size: clamp(1.2rem, 4vw, 1.8rem);
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin: 0;
-  }
-
-  .drug-details {
-    max-height: auto;
-  }
-
-  .detail-section.indications {
-    background-color: #4caf50;
-    color: #ffffff;
-  }
-
-  .detail-section.side-effects {
-    background-color: #ffeb3b;
-    color: #000000;
-  }
-
-  .detail-section.considerations {
-    background-color: #ff0000;
-    color: #ffffff;
-  }
-
-  .weight-group {
-    margin-bottom: 8px;
-  }
-
-  .weight-group-title {
-    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
-    font-weight: 600;
-    text-align: center;
-    margin: 0 0 10px;
-    color: var(--text);
-  }
-
-  @media (max-width: 520px) {
-    .img-grid img {
-      width: 70px;
-      height: 70px;
-    }
-
-    .accordion-header {
-      padding: 10px;
-      font-size: 1rem;
-    }
-
-    .weight-box {
-      font-size: 1.15rem;
-      padding: 10px;
-    }
-
-    .small-btn,
-    #themeToggle {
-      padding: 9px 10px;
-      font-size: 0.88rem;
-    }
-  }
-</style>
+}
