@@ -1,4 +1,4 @@
- :root {
+  :root {
     --max-width: 900px;
     --accent: #f0f0f0;
     --border: #cfcfcf;
@@ -390,4 +390,11 @@
 #backButton:focus-visible {
   outline: 4px solid #ffd54f;
   outline-offset: 3px;
+}
+.sticky-header {
+  position: sticky;
+  top: 16px;  /* Matches your body padding; adjust as needed */
+  z-index: 10;  /* Ensures it stays above accordion content */
+  background: var(--bg);  /* Prevents transparency issues while scrolling */
+  margin-bottom: 12px;
 }
