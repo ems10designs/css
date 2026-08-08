@@ -1,415 +1,356 @@
-:root {
-  --max-width: 900px;
-  --accent: #f0f0f0;
-  --border: #cfcfcf;
-  --warning: #d9534f;
-  --bg: #fff;
-  --text: #111;
-  --content-bg: #fff;
-  --btn-bg: #f7f7f7;
-  --btn-text: #111;
-  --input-bg: #fff;
-  --input-text: #111;
-  --weight-bg: gray;
-  --weight-text: #fff;
-  
-  /* Banner colors */
-  --first-dose-bg: #1565c0;
-  --second-dose-bg: #000000;
-  --warning-banner-bg: #ff0000;
-  --banner-text: #fff;
-  
-  /* Detail section colors */
-  --indication-bg: #4caf50;
-  --indication-text: #ffffff;
-  --side-effect-bg: #ffeb3b;
-  --side-effect-text: #000000;
-  --consideration-bg: #ff0000;
-  --consideration-text: #ffffff;
-  
-  /* Back button colors */
-  --back-btn-bg: #1565c0;
-  --back-btn-border: #0d47a1;
-  --back-btn-hover: #0d47a1;
-  --back-btn-focus: #ffd54f;
-}
-
-[data-theme="dark"] {
-  --accent: #2a2a2a;
-  --border: #444;
-  --warning: #ff6b6b;
-  --bg: #121212;
-  --text: #e8e8e8;
-  --content-bg: #1e1e1e;
-  --btn-bg: #2a2a2a;
-  --btn-text: #e8e8e8;
-  --input-bg: #2a2a2a;
-  --input-text: #e8e8e8;
-  --weight-bg: #333;
-  --weight-text: #fff;
-  
-  /* Dark theme banner colors */
-  --first-dose-bg: #1a7dd6;
-  --second-dose-bg: #2a2a2a;
-  --warning-banner-bg: #cc0000;
-  
-  /* Dark theme detail section colors */
-  --indication-bg: #388e3c;
-  --indication-text: #ffffff;
-  --side-effect-bg: #f57f17;
-  --side-effect-text: #000;
-  --consideration-bg: #d32f2f;
-  --consideration-text: #ffffff;
-  
-  /* Dark theme back button */
-  --back-btn-bg: #1a7dd6;
-  --back-btn-border: #135ba1;
-  --back-btn-hover: #135ba1;
-}
-
-body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  margin: 0;
-  padding: 16px;
-  background: var(--bg);
-  color: var(--text);
-  display: flex;
-  justify-content: center;
-  transition: background 0.25s, color 0.25s;
-}
-
-.container {
-  width: 100%;
-  max-width: var(--max-width);
-}
-
-/* Header */
-.weight-box {
-  background: var(--weight-bg);
-  color: var(--weight-text);
-  text-align: center;
-  padding: 12px 10px;
-  border-radius: 6px;
-  font-weight: 700;
-  font-size: 1.4rem;
-  box-sizing: border-box;
-  transition: background 0.25s;
-}
-
-/* Controls: search on top, buttons row below */
-.controls {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  margin: 12px 0;
-}
-
-#searchBox {
-  width: 100%;
-  max-width: 520px;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  font-size: 1rem;
-  box-sizing: border-box;
-  background: var(--input-bg);
-  color: var(--input-text);
-  transition: background 0.25s, color 0.25s, border-color 0.25s;
-}
-
-.btn-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  gap: 8px;
-}
-
-/* Consolidated button styles */
-.small-btn,
-#themeToggle {
-  padding: 10px 12px;
-  border-radius: 8px;
-  background: var(--btn-bg);
-  border: 1px solid var(--border);
-  color: var(--btn-text);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background 0.25s, color 0.25s, border-color 0.25s;
-  display: flex;
-  align-items: center;
-}
-
-.small-btn {
-  font-size: 0.95rem;
-}
-
-#themeToggle {
-  font-size: 1rem;
-  line-height: 1;
-  gap: 5px;
-}
-
-.small-btn:hover,
-#themeToggle:hover {
-  background: var(--accent);
-  border-color: var(--text);
-}
-
-/* Accordion */
-.accordion {
-  margin: 0 auto;
-  width: 100%;
-}
-
-.accordion-item {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  margin-bottom: 10px;
-  overflow: hidden;
-  transition: border-color 0.25s;
-}
-
-.accordion-item:focus-within {
-  box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.1);
-}
-
-.accordion-header {
-  width: 100%;
-  text-align: left;
-  background: var(--accent);
-  color: var(--text);
-  padding: 12px 14px;
-  border: 0;
-  font-weight: 700;
-  font-size: 1.05rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  cursor: pointer;
-  transition: background 0.25s, color 0.25s;
-}
-
-.accordion-header:focus {
-  outline: 3px solid #bde0ff;
-  outline-offset: 2px;
-}
-
-.accordion-title {
-  flex: 1;
-  text-align: center;
-}
-
-.accordion-content {
-  display: none;
-  background: var(--content-bg);
-  padding: 12px;
-  text-align: center;
-  transition: background 0.25s;
-}
-
-.accordion-content.show {
-  display: block;
-}
-
-.img-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.img-grid img {
-  width: 200px;
-  height: 200px;
-  object-fit: contain;
-  display: inline-block;
-}
-
-.warning {
-  color: var(--warning);
-  font-weight: 800;
-}
-
-/* Banners - Consolidated */
-.first-dose-banner,
-.second-dose-banner,
-.warning-banner {
-  text-align: center;
-  padding: 10px 16px;
-  border-radius: 6px;
-  margin-bottom: 12px;
-}
-
-.first-dose-banner {
-  background: var(--first-dose-bg);
-}
-
-.second-dose-banner {
-  background: var(--second-dose-bg);
-}
-
-.warning-banner {
-  background: var(--warning-banner-bg);
-}
-
-.first-dose-banner h1,
-.second-dose-banner h1,
-.warning-banner h1 {
-  font-size: clamp(1.2rem, 4vw, 1.8rem);
-  font-weight: 700;
-  color: var(--banner-text);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-/* Colors for each section type */
-.detail-section.indications {
-  background-color: var(--indication-bg);
-  color: var(--indication-text);
-}
-
-.detail-section.side-effects {
-  background-color: var(--side-effect-bg);
-  color: var(--side-effect-text);
-}
-
-.detail-section.considerations {
-  background-color: var(--consideration-bg);
-  color: var(--consideration-text);
-}
-
-/* Dose Cards */
-.dose-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.dose-card {
-  background: var(--accent);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  transition: background 0.25s, border-color 0.25s;
-}
-
-.dose-card:hover {
-  border-color: var(--text);
-}
-
-.dose-card img {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: contain;
-  max-width: 100%;
-  margin: 10px auto 0;
-}
-
-.dose-card-body {
-  padding: 8px 10px 12px;
-  width: 100%;
-}
-
-.dose-card-body p {
-  font-size: clamp(1.1rem, 3vw, 1.4rem);
-  font-weight: 600;
-  color: var(--text);
-  margin: 0 0 2px;
-  transition: color 0.25s;
-}
-
-.dose-card-body p.secondary {
-  font-size: clamp(0.85rem, 2.2vw, 1rem);
-  font-weight: 400;
-  color: var(--text);
-  opacity: 0.65;
-  margin: 0;
-}
-
-.weight-group {
-  margin-bottom: 8px;
-}
-
-.weight-group-title {
-  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
-  font-weight: 600;
-  text-align: center;
-  margin: 0 0 10px;
-  color: var(--text);
-  transition: color 0.25s;
-}
-
-/* Back Button */
-#backButton {
-  background: var(--back-btn-bg);
-  color: #fff;
-  border: 2px solid var(--back-btn-border);
-  font-weight: 800;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
-  cursor: pointer;
-  padding: 10px 12px;
-  border-radius: 8px;
-  transition: background 0.25s, border-color 0.25s;
-}
-
-#backButton:hover {
-  background: var(--back-btn-hover);
-}
-
-#backButton:focus-visible {
-  outline: 4px solid var(--back-btn-focus);
-  outline-offset: 3px;
-}
-
-/* Sticky Header */
-.sticky-header {
-  position: sticky;
-  top: 16px;
-  z-index: 10;
-  background: var(--bg);
-  margin-bottom: 12px;
-  transition: background 0.25s;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .dose-cards {
-    grid-template-columns: repeat(2, 1fr);
+  :root {
+    --max-width: 900px;
+    --accent: #f0f0f0;
+    --border: #cfcfcf;
+    --warning: #d9534f;
+    --bg: #fff;
+    --text: #111;
+    --content-bg: #fff;
+    --btn-bg: #f7f7f7;
+    --btn-text: #111;
+    --input-bg: #fff;
+    --input-text: #111;
+    --weight-bg: gray;
+    --weight-text: #fff;
   }
-}
 
-@media (max-width: 520px) {
+  [data-theme="dark"] {
+    --accent: #2a2a2a;
+    --border: #444;
+    --warning: #ff6b6b;
+    --bg: #121212;
+    --text: #e8e8e8;
+    --content-bg: #1e1e1e;
+    --btn-bg: #2a2a2a;
+    --btn-text: #e8e8e8;
+    --input-bg: #2a2a2a;
+    --input-text: #e8e8e8;
+    --weight-bg: #333;
+    --weight-text: #fff;
+  }
+
   body {
-    padding: 12px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    margin: 0;
+    padding: 16px;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    transition: background 0.25s, color 0.25s;
+  }
+
+  .container {
+    width: 100%;
+    max-width: var(--max-width);
+  }
+
+  /* Header */
+  .weight-box {
+    background: var(--weight-bg);
+    color: var(--weight-text);
+    text-align: center;
+    padding: 12px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1.4rem;
+    box-sizing: border-box;
+    transition: background 0.25s;
+  }
+
+  /* Controls: search on top, buttons row below */
+  .controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0;
+  }
+
+  #searchBox {
+    width: 100%;
+    max-width: 520px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-size: 1rem;
+    box-sizing: border-box;
+    background: var(--input-bg);
+    color: var(--input-text);
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
+  }
+
+  .btn-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .small-btn {
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--btn-bg);
+    border: 1px solid var(--border);
+    color: var(--btn-text);
+    cursor: pointer;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
+  }
+
+  #themeToggle {
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--btn-bg);
+    border: 1px solid var(--border);
+    color: var(--btn-text);
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
+  }
+
+  /* Accordion */
+  .accordion {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .accordion-item {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: border-color 0.25s;
   }
 
   .accordion-header {
-    padding: 10px;
-    font-size: 1rem;
+    width: 100%;
+    text-align: left;
+    background: var(--accent);
+    color: var(--text);
+    padding: 12px 14px;
+    border: 0;
+    font-weight: 700;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s;
   }
 
-  .weight-box {
-    font-size: 1.15rem;
-    padding: 10px;
+  .accordion-header:focus {
+    outline: 3px solid #bde0ff;
+    outline-offset: 2px;
   }
 
-  .small-btn,
-  #themeToggle {
-    padding: 9px 10px;
-    font-size: 0.88rem;
+  .accordion-title {
+    flex: 1;
+    text-align: center;
   }
 
+  .accordion-content {
+    display: none;
+    background: var(--content-bg);
+    padding: 12px;
+    text-align: center;
+    transition: background 0.25s;
+  }
+
+  .accordion-content.show {
+    display: block;
+  }
+
+  .img-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .img-grid img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    display: inline-block;
+  }
+
+  .warning {
+    color: var(--warning);
+    font-weight: 800;
+  }
+
+  /* Banners — shared base; only background differs per variant */
+  .first-dose-banner,
+  .second-dose-banner,
+  .warning-banner {
+    text-align: center;
+    padding: 10px 16px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+
+  .first-dose-banner h1,
+  .second-dose-banner h1,
+  .warning-banner h1 {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .first-dose-banner {
+    background: #1565c0;
+  }
+
+  .second-dose-banner {
+    background: #000000;
+  }
+
+  .warning-banner {
+    background: #ff0000;
+  }
+
+  /* Colors for each section type */
+  .detail-section.indications {
+    background-color: #4caf50;
+    color: #ffffff;
+  }
+
+  .detail-section.side-effects {
+    background-color: #ffeb3b;
+    color: #000000;
+  }
+
+  .detail-section.considerations {
+    background-color: #ff0000;
+    color: #ffffff;
+  }
+
+  /* Dose Cards */
   .dose-cards {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 12px;
   }
+
+  .dose-card {
+    background: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: background 0.25s, border-color 0.25s;
+  }
+
+  .dose-card img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    max-width: 100%;
+    margin: 10px auto 0;
+  }
+
+  .dose-card-body {
+    padding: 8px 10px 12px;
+    width: 100%;
+  }
+
+  .dose-card-body p {
+    font-size: clamp(1.1rem, 3vw, 1.4rem); /* main dose value */
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 2px;
+    transition: color 0.25s;
+  }
+
+  .dose-card-body p.secondary {
+    font-size: clamp(0.85rem, 2.2vw, 1rem); /* label/unit text */
+    font-weight: 100;
+    color: var(--text);
+    opacity: 0.65;
+    margin: 0;
+  }
+
+  .weight-group {
+    margin-bottom: 8px;
+  }
+
+  .weight-group-title {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    font-weight: 800;
+    text-align: center;
+    margin: 0 0 10px;
+    color: var(--text);
+    transition: color 0.25s;
+  }
+
+  @media (max-width: 520px) {
+    .accordion-header {
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    .weight-box {
+      font-size: 1.15rem;
+      padding: 10px;
+    }
+
+    .small-btn,
+    #themeToggle {
+      padding: 9px 10px;
+      font-size: 0.88rem;
+    }
+
+    .dose-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+  #backButton {
+  background: #1565c0;
+  color: #fff;
+  border: 2px solid #0d47a1;
+  font-weight: 800;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
 }
+
+#backButton:hover {
+  background: #0d47a1;
+}
+
+#backButton:focus-visible {
+  outline: 4px solid #ffd54f;
+  outline-offset: 3px;
+}
+.sticky-header {
+  position: sticky;
+  top: 16px;  /* Matches your body padding; adjust as needed */
+  z-index: 10;  /* Ensures it stays above accordion content */
+  background: var(--bg);  /* Prevents transparency issues while scrolling */
+  margin-bottom: 12px;
+}
+.weight-3-5kg  {background: #999999; color: #ffffff;} /* Gray */
+.weight-6-7kg  {background: #FF00AA; color: #ffffff;} /* Pink */
+.weight-8-9kg  {background: #FF0000; color: #ffffff;} /* Red */
+.weight-10-11kg  {background: #8600B3; color: #ffffff;} /* Purple */
+.weight-12-14kg  {background: #FFFB17; color: #000000;} /* Yellow */
+.weight-15-18kg  {background: #FFFFFF; color: #000000;} /* White */
+.weight-19-23kg  {background: #012893; color: #ffffff;} /* Blue */
+.weight-24-29kg  {background: #FF6600; color: #ffffff;} /* Orange */
+.weight-30-36kg  {background: #006200; color: #ffffff;} /* Green */
+.weight-37-60kg  {background: #000000; color: #ffffff;} /* Black */
